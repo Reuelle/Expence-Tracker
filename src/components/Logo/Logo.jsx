@@ -1,13 +1,27 @@
-// src/components/Logo/Logo.js
+// src/components/Logo/Logo.jsx
 import React from 'react';
-import logo from './logo.svg'; // Import your logo image
-import './Logo.css'; // Optional: For custom styling
+import { useHistory } from 'react-router-dom';
+import { useAuth } from '../hooks'; // Assumed custom hook for authentication status
+import logoImage from './Icon.png'; // Path to the logo image
+import styles from './Logo.module.css'; // CSS Module for styling
 
-const Logo = () => (
-  <div className="logo-container">
-    <img src={logo} alt="Expense Tracker Logo" className="logo" />
-    <span className="logo-text">EXPENSE TRACKER</span>
-  </div>
-);
+const Logo = () => {
+  const history = useHistory();
+  const { isAuthenticated } = useAuth(); // Use authentication hook to check if user is authenticated
+
+  const handleClick = () => {
+    if (isAuthenticated) {
+      history.push('/main-transaction'); // Redirect to MainTransactionPage for authenticated users
+    } else {
+      history.push('/'); // Redirect to HomePage for unauthenticated users
+    }
+  };
+
+  return (
+    <div className={styles.logoContainer} onClick={handleClick}>
+      <img src={logoImage} alt="Expense Tracker Logo" className={styles.logo} />
+    </div>
+  );
+};
 
 export default Logo;
