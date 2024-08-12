@@ -5,7 +5,7 @@ import './Header.css'; // Optional: For custom styling
 
 const Header = () => (
   <header className="header">
-    <Logo /> {/* Logo with connected "EXPENSE TRACKER" text */}
+    <Logo /> {"EXPENSE TRACKER"}
     <nav className="nav">
       {/* Add navigation links or other elements as needed */}
     </nav>
