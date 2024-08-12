@@ -6,15 +6,16 @@ import HomePage from './components/HomePage/HomePage';
 import AuthorizationPage from './components/AuthorizationPage/AuthorizationPage';
 import TransactionHistoryPage from './components/TransactionHistoryPage/TransactionHistoryPage';
 import MainTransactionPage from './components/MainTransactionPage/MainTransactionPage';
-import TransactionNav from './components/TransactionNav/TransactionNav';
+import BurgerMenuButton from './components/BurgerMenuButton/BurgerMenuButton';
 
 const App = () => (
   <Router>
-    <Header /> {/* Include the Header component */}
+    <Header />
+    <BurgerMenuButton /> {/* Include the BurgerMenuButton component */}
     <Switch>
       <Route path="/" exact component={HomePage} />
       <Route path="/authorization" component={AuthorizationPage} />
-      <Route path="/transaction-history/:type" component={TransactionHistoryPage} />
+      <Route path="/transaction-history" component={TransactionHistoryPage} />
       <Route path="/main-transaction" component={MainTransactionPage} />
     </Switch>
   </Router>
