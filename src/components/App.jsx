@@ -6,16 +6,15 @@ import HomePage from './components/HomePage/HomePage';
 import AuthorizationPage from './components/AuthorizationPage/AuthorizationPage';
 import TransactionHistoryPage from './components/TransactionHistoryPage/TransactionHistoryPage';
 import MainTransactionPage from './components/MainTransactionPage/MainTransactionPage';
-import DecorationComponent from './components/DecorationComponent/DecorationComponent';
+import TransactionNav from './components/TransactionNav/TransactionNav';
 
 const App = () => (
   <Router>
-    <DecorationComponent /> {/* Globally render the component */}
-    <Header />
+    <Header /> {/* Include the Header component */}
     <Switch>
       <Route path="/" exact component={HomePage} />
       <Route path="/authorization" component={AuthorizationPage} />
-      <Route path="/transaction-history" component={TransactionHistoryPage} />
+      <Route path="/transaction-history/:type" component={TransactionHistoryPage} />
       <Route path="/main-transaction" component={MainTransactionPage} />
     </Switch>
   </Router>
