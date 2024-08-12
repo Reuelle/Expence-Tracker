@@ -1,7 +1,7 @@
 
 // src/components/Header/Header.js
 import React from 'react';
-import Logo from '../Logo/Logo';
+import Logo from '../Logo/Icon.svg';
 import './Header.css'; // Optional: For custom styling
 
 const Header = () => (
