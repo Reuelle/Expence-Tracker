@@ -20,6 +20,7 @@ const Logo = () => {
   return (
     <div className={styles.logoContainer} onClick={handleClick}>
       <img src={logoImage} alt="Expense Tracker Logo" className={styles.logo} />
+        <span className="logo-text">EXPENSE TRACKER</span>
     </div>
   );
 };
