@@ -1,1 +1,19 @@
+/* src/components/Logo/Logo.css */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px; /* Adjust size as needed */
+  width: auto;
+  margin-right: 10px; /* Space between logo and text */
+}
+
+.logo-text {
+  font-size: 24px; /* Adjust text size as needed */
+  font-weight: bold;
+  color: #1677ff; /* Color for the text */
+  letter-spacing: 1px; /* Optional: for spacing between letters */
+}
 
