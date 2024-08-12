@@ -1,6 +1,6 @@
 // src/components/Logo/Logo.js
 import React from 'react';
-import logo from './logo.svg'; // Import your logo image
+import logo from './Icon.png'; // Import your logo image
 import './Logo.css'; // Optional: For custom styling
 
 const Logo = () => (
