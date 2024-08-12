@@ -1,17 +1,13 @@
 // src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Header from './components/Header/Header';
 import HomePage from './components/HomePage/HomePage';
 import AuthorizationPage from './components/AuthorizationPage/AuthorizationPage';
 import TransactionHistoryPage from './components/TransactionHistoryPage/TransactionHistoryPage';
 import MainTransactionPage from './components/MainTransactionPage/MainTransactionPage';
-import BurgerMenuButton from './components/BurgerMenuButton/BurgerMenuButton';
 
 const App = () => (
   <Router>
-    <Header />
-    <BurgerMenuButton /> {/* Include the BurgerMenuButton component */}
     <Switch>
       <Route path="/" exact component={HomePage} />
       <Route path="/authorization" component={AuthorizationPage} />
