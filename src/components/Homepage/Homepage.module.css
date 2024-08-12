@@ -1,0 +1,31 @@
+/* src/components/HomePage/HomePage.module.css */
+.homePage {
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .content {
+    display: flex;
+    justify-content: center;
+  }
+}
