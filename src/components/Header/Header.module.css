@@ -1,1 +1,24 @@
+/* src/components/Header/Header.css */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+}
+
+.nav {
+  /* Add styles for navigation if needed */
+}
+
+/* src/components/Logo/Logo.css */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
 
