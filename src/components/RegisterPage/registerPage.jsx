@@ -2,6 +2,7 @@
 import React from 'react';
 import * as Yup from 'yup';
 import AuthForm from '../AuthForm/AuthForm'; // Import AuthForm component
+import AllUsersTab from '../AllUsersTab/AllUsersTab'; 
 import styles from './RegisterPage.module.css'; // Optional: For custom styling
 
 // Define form fields, initial values, and validation schema
@@ -47,11 +48,10 @@ const RegisterPage = () => {
   return (
     <div className={styles.registerPage}>
       <header className={styles.header}>
-        <h1>Sign Up</h1>
-         <p>Step into a world of hassle-free expense management!Your journey your fingertips.</p>
       </header>
+        <h1>Sign Up</h1>
       <p className={styles.description}>
-        Create a new account by filling out the form below.
+        Step into a world of hassle-free expense management!Your journey your fingertips.
       </p>
       <AuthForm
         formFields={formFields}
@@ -61,6 +61,7 @@ const RegisterPage = () => {
         onSubmit={handleSubmit}
         navigation={{ href: '/login', text: 'Already have an account? Sign In' }}
       />
+      <AllUsersTab /> {/* Render AllUsersTab component */}
     </div>
   );
 };
