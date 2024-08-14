@@ -2,8 +2,8 @@
 import React from 'react';
 import * as Yup from 'yup';
 import AuthForm from '../AuthForm/AuthForm'; // Import AuthForm component
-import AllUsersTab from '../AllUsersTab/AllUsersTab'; 
-import styles from './RegisterPage.module.css'; // Optional: For custom styling
+import AllUsersTab from '../AllUsersTab/AllUsersTab'; // Import AllUsersTab component
+import styles from './RegisterPage.module.css'; // Import CSS module for styling
 
 // Define form fields, initial values, and validation schema
 const formFields = [
@@ -48,11 +48,11 @@ const RegisterPage = () => {
   return (
     <div className={styles.registerPage}>
       <header className={styles.header}>
-      </header>
         <h1>Sign Up</h1>
-      <p className={styles.description}>
-        Step into a world of hassle-free expense management!Your journey your fingertips.
-      </p>
+        <p className={styles.description}>
+          Step into a world of hassle-free expense management! Your journey at your fingertips.
+        </p>
+      </header>
       <AuthForm
         formFields={formFields}
         submitButtonText="Register"
