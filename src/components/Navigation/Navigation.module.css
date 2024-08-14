@@ -8,8 +8,8 @@
 }
 
 .icon {
-  width: 24px; /* Adjust size as needed */
-  height: 24px;
+  width: 24px; /* Adjust this size to fit your design */
+  height: 24px; /* Adjust this size to fit your design */
   margin-right: 8px; /* Space between icon and text */
 }
 
@@ -57,4 +57,3 @@
   position: fixed;
   height: 100%;
 }
-
