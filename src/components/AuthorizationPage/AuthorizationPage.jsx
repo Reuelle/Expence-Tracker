@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/Auth/Auth-operations'; // Adjust path as needed
-import './AuthorizationPage.css'; // Optional: For custom styling
+import './AuthorizationPage.module.css'; // Optional: For custom styling
 
 const AuthorizationPage = () => {
   const [email, setEmail] = useState('');
