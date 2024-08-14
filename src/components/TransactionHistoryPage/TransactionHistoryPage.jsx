@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { fetchTransactions } from '../../redux/transactions/transaction-operations'; // Adjust path as needed
+import { fetchTransactions } from '../../redux/Transactions/Transaction-operations'; // Adjust path as needed
 import TransactionNav from '../TransactionNav/TransactionNav'; // Import navigation component
 import './TransactionHistoryPage.module.css'; // Optional: For custom styling
 
