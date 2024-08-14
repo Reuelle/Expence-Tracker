@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchTransactions } from 'redux/transactions/transaction-operations'; // Adjust path as needed
 import TransactionNav from '../TransactionNav/TransactionNav'; // Import navigation component
-import './TransactionHistoryPage.css'; // Optional: For custom styling
+import './TransactionHistoryPage.module.css'; // Optional: For custom styling
 
 const TransactionHistoryPage = () => {
   const dispatch = useDispatch();
