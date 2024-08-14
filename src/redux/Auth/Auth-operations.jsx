@@ -1,1 +1,63 @@
+// src/redux/Auth/Auth-operations.jsx
+import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { authActions } from './Auth-slice'; // Adjust path as needed
+
+// Set up your API base URL
+axios.defaults.baseURL = 'https://your-api-base-url.com';
+
+// Utility to set authorization token
+const setAuthToken = (token) => {
+  if (token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  } else {
+    delete axios.defaults.headers.common.Authorization;
+  }
+};
+
+// Log In operation
+export const logIn = createAsyncThunk(
+  'auth/logIn',
+  async (credentials, { rejectWithValue, dispatch }) => {
+    try {
+      const { data } = await axios.post('/auth/login', credentials);
+      setAuthToken(data.token);
+      dispatch(authActions.setUser(data.user));
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+// Log Out operation
+export const logOut = createAsyncThunk('auth/logOut', async (_, { rejectWithValue }) => {
+  try {
+    await axios.post('/auth/logout');
+    setAuthToken(null);
+  } catch (error) {
+    return rejectWithValue(error.response.data);
+  }
+});
+
+// Get Current User operation
+export const fetchCurrentUser = createAsyncThunk(
+  'auth/fetchCurrentUser',
+  async (_, { getState, rejectWithValue }) => {
+    const state = getState();
+    const persistedToken = state.auth.token;
+
+    if (!persistedToken) {
+      return rejectWithValue('No token found');
+    }
+
+    try {
+      setAuthToken(persistedToken);
+      const { data } = await axios.get('/auth/current');
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
 
