@@ -47,7 +47,8 @@ const RegisterPage = () => {
   return (
     <div className={styles.registerPage}>
       <header className={styles.header}>
-        <h1>Register</h1>
+        <h1>Sign Up</h1>
+         <p>Step into a world of hassle-free expense management!Your journey your fingertips.</p>
       </header>
       <p className={styles.description}>
         Create a new account by filling out the form below.
