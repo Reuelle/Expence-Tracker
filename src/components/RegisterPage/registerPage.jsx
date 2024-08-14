@@ -7,6 +7,12 @@ import styles from './RegisterPage.module.css'; // Optional: For custom styling
 // Define form fields, initial values, and validation schema
 const formFields = [
   {
+    name: 'name',
+    label: 'Name',
+    type: 'text',
+    placeholder: 'Enter your name',
+  },
+  {
     name: 'email',
     label: 'Email',
     type: 'email',
@@ -21,16 +27,17 @@ const formFields = [
 ];
 
 const initialValues = {
+  name: '',
   email: '',
   password: '',
 };
 
 const validationSchema = Yup.object({
+  name: Yup.string().required('Required'),
   email: Yup.string().email('Invalid email address').required('Required'),
-  password: Yup.string().required('Required'),
+  password: Yup.string().min(6, 'Password must be at least 6 characters').required('Required'),
 });
 
-// Define the submit function
 const handleSubmit = (values) => {
   console.log('Form values:', values);
   // Handle form submission here
