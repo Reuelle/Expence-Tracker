@@ -8,8 +8,9 @@ const HomePage = () => {
   return (
     <div className={styles.homePage}>
       <header className={styles.header}>
-        <h1>Welcome to Expense Tracker</h1>
-        <p>Your personal finance management app</p>
+         <h3>EXPENSE LOG</h3>
+        <h1>Manage Your Finances Masterfully!</h1>
+        <p>ExpenseTracker effortlessly empowers you to take controlof your finaces!with intuitive features,it simplifies the process of tracking and managing expenses,allowing for a stress-free mastery over your financial world. </p>
       </header>
       <AuthNav />
       <div className={styles.content}>
