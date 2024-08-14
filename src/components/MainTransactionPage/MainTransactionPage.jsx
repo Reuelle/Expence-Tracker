@@ -1,8 +1,8 @@
 // src/components/MainTransactionPage/MainTransactionPage.js
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addTransaction } from 'redux/transactions/transaction-operations'; // Adjust path as needed
-import './MainTransactionPage.css'; // Optional: For custom styling
+import { addTransaction } from '../../redux/Transactions/Transaction-operations'; // Adjust path as needed
+import './MainTransactionPage.module.css'; // Optional: For custom styling
 
 const MainTransactionPage = () => {
   const [description, setDescription] = useState('');
