@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 // Define API endpoint
-const API_URL = 'https://your-api-endpoint/transactions'; // Replace with your actual API endpoint
+const API_URL = 'https://expense-tracker.b.goit.study/api-docs/'; // Replace with your actual API endpoint
 
 // Create an async thunk for adding a new transaction
 export const addTransaction = createAsyncThunk(
