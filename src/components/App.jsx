@@ -9,13 +9,13 @@ import MainTransactionPage from '../components/MainTransactionPage/MainTransacti
 
 const App = () => (
   <Router>
-    <Switch>
+    <Routes>
       <Route path="/" exact component={HomePage} />
       <Route path="/register" component={RegisterPage} /> {/* Add route for RegisterPage */}
       <Route path="/authorization" component={AuthorizationPage} />
       <Route path="/transaction-history" component={TransactionHistoryPage} />
       <Route path="/main-transaction" component={MainTransactionPage} />
-    </Switch>
+    </Routes>
   </Router>
 );
 
