@@ -29,7 +29,10 @@ const AuthForm = ({
                   id={field.name}
                   name={field.name}
                   placeholder={field.placeholder}
-                  className={styles.formField}
+                  className={`${styles.formField} ${
+                    // Apply invalid styling if there's an error
+                    field.error ? styles.invalid : ''
+                  }`}
                 />
                 <ErrorMessage
                   name={field.name}
