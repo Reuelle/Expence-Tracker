@@ -1,9 +1,11 @@
+// src/components/Header/Header.jsx
 import React from 'react';
 import Logo from '../Logo/Logo';
 import './Header.module.css'; // Import custom styles
 
 const Header = () => (
   <header className="header">
+    <Logo /> {/* Use the Logo component */}
     <div className="logo">
       EXPENSETRACKER
     </div>
