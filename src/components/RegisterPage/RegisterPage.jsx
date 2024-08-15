@@ -1,6 +1,6 @@
 // src/components/RegisterPage/RegisterPage.jsx
 import React from 'react';
-//import * as Yup from 'yup';
+import * as Yup from 'yup';
 import AuthForm from '../AuthForm/AuthForm'; // Import AuthForm component
 import AllUsersTab from '../AllUsersTab/AllUsersTab'; // Import AllUsersTab component
 import styles from './RegisterPage.module.css'; // Import CSS module for styling
