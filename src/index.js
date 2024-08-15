@@ -1,12 +1,11 @@
+// src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import rootReducer from './redux/rootReducer'; // Import the rootReducer
+import store from './redux/store';  // Adjust the path as needed
 import App from './App';
 
-const store = createStore(rootReducer);
-
+// Render the application
 ReactDOM.render(
   <Provider store={store}>
     <App />
