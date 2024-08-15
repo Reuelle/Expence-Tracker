@@ -1,7 +1,5 @@
-// src/redux/Auth/Auth-slice.js
 import { createSlice } from '@reduxjs/toolkit';
-import { logIn, logOut, fetchCurrentUser } from './Auth-operations'; // Adjust path as needed
-
+import { logIn as logInOperation, logOut as logOutOperation, fetchCurrentUser as fetchCurrentUserOperation } from './Auth-operations'; // Rename operations for clarity
 
 const authSlice = createSlice({
   name: 'auth',
@@ -11,20 +9,42 @@ const authSlice = createSlice({
     // other initial state properties
   },
   reducers: {
-    logIn: (state, action) => {
+    // Renamed to avoid conflicts with thunks
+    setUser: (state, action) => {
       state.user = action.payload;
       state.isAuthenticated = true;
     },
-    logOut: (state) => {
+    clearUser: (state) => {
       state.user = null;
       state.isAuthenticated = false;
     },
     // Add any other reducers here
-    fetchCurrentUser: (state) => {
-      // Implementation for fetching current user
-    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(logInOperation.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.isAuthenticated = true;
+      })
+      .addCase(logInOperation.rejected, (state, action) => {
+        // Handle the rejected case
+      })
+      .addCase(logOutOperation.fulfilled, (state) => {
+        state.user = null;
+        state.isAuthenticated = false;
+      })
+      .addCase(logOutOperation.rejected, (state, action) => {
+        // Handle the rejected case
+      })
+      .addCase(fetchCurrentUserOperation.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.isAuthenticated = true;
+      })
+      .addCase(fetchCurrentUserOperation.rejected, (state, action) => {
+        // Handle the rejected case
+      });
   },
 });
 
-export const { logIn, logOut, fetchCurrentUser } = authSlice.actions;
+export const { setUser, clearUser } = authSlice.actions; // Export renamed actions
 export default authSlice.reducer;
