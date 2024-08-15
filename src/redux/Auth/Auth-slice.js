@@ -6,61 +6,24 @@ const authSlice = createSlice({
   name: 'auth',
   initialState: {
     user: null,
-    token: null,
-    isLoading: false,
-    error: null,
+    isAuthenticated: false,
+    // other initial state properties
   },
   reducers: {
-    setUser(state, action) {
+    login: (state, action) => {
       state.user = action.payload;
+      state.isAuthenticated = true;
     },
-    clearUser(state) {
+    logout: (state) => {
       state.user = null;
-      state.token = null;
+      state.isAuthenticated = false;
     },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(logIn.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(logIn.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-      })
-      .addCase(logIn.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-      .addCase(logOut.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(logOut.fulfilled, (state) => {
-        state.isLoading = false;
-        state.user = null;
-        state.token = null;
-      })
-      .addCase(logOut.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-      .addCase(fetchCurrentUser.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(fetchCurrentUser.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.user = action.payload;
-      })
-      .addCase(fetchCurrentUser.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      });
+    // other reducers
   },
 });
 
-export const authActions = authSlice.actions;
+export const { login, logout } = authSlice.actions;
 export default authSlice.reducer;
+
+
+  
