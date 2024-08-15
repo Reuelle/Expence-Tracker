@@ -15,7 +15,6 @@ const HomePage = () => {
           ExpenseTracker effortlessly empowers you to take control of your finances! 
           With intuitive features, it simplifies the process of tracking and managing expenses, 
           allowing for a stress-free mastery over your financial world.
-           <div style={{ border: '1px solid red' }}>Debug: HomePage Content</div>
         </p>
         <AuthNav /> {/* Navigation for Register/Login */}
         <div className={styles.content}>
