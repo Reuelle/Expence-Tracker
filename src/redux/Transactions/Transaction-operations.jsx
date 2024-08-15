@@ -1,3 +1,4 @@
+// src/redux/Transactions/Transaction-operations.jsx
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -9,13 +10,13 @@ export const addTransaction = createAsyncThunk(
   'transactions/addTransaction',
   async ({ description, amount }, { rejectWithValue }) => {
     try {
-      const response = await axios.post(API_URL, {
+      const response = await axios.post(`${API_URL}/transactions`, { 
         description,
         amount,
       });
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response?.data || 'An error occurred');
     }
   }
 );
@@ -25,10 +26,10 @@ export const fetchTransactions = createAsyncThunk(
   'transactions/fetchTransactions',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(API_URL);
+      const response = await axios.get(`${API_URL}/transactions`); 
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response?.data || 'An error occurred');
     }
   }
 );
@@ -38,10 +39,10 @@ export const deleteTransaction = createAsyncThunk(
   'transactions/deleteTransaction',
   async (id, { rejectWithValue }) => {
     try {
-      await axios.delete(`${API_URL}/${id}`);
+      await axios.delete(`${API_URL}/transactions/${id}`); 
       return id;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response?.data || 'An error occurred');
     }
   }
 );
@@ -51,11 +52,10 @@ export const updateTransaction = createAsyncThunk(
   'transactions/updateTransaction',
   async ({ id, updates }, { rejectWithValue }) => {
     try {
-      const response = await axios.put(`${API_URL}/${id}`, updates);
+      const response = await axios.put(`${API_URL}/transactions/${id}`, updates); 
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response?.data || 'An error occurred');
     }
   }
 );
-

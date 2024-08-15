@@ -1,67 +1,50 @@
-// src/redux/Auth/Auth-slice.js
 import { createSlice } from '@reduxjs/toolkit';
-import { logIn, logOut, fetchCurrentUser } from './Auth-operations'; // Adjust path as needed
+import { logIn as logInOperation, logOut as logOutOperation, fetchCurrentUser as fetchCurrentUserOperation } from './Auth-operations'; // Rename operations for clarity
 
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
     user: null,
-    token: null,
-    isLoading: false,
-    error: null,
+    isAuthenticated: false,
+    // other initial state properties
   },
   reducers: {
-    setUser(state, action) {
+    // Renamed to avoid conflicts with thunks
+    setUser: (state, action) => {
       state.user = action.payload;
+      state.isAuthenticated = true;
     },
-    clearUser(state) {
+    clearUser: (state) => {
       state.user = null;
-      state.token = null;
+      state.isAuthenticated = false;
     },
+    // Add any other reducers here
   },
   extraReducers: (builder) => {
     builder
-      .addCase(logIn.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(logIn.fulfilled, (state, action) => {
-        state.isLoading = false;
+      .addCase(logInOperation.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        state.token = action.payload.token;
+        state.isAuthenticated = true;
       })
-      .addCase(logIn.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
+      .addCase(logInOperation.rejected, (state, action) => {
+        // Handle the rejected case
       })
-      .addCase(logOut.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(logOut.fulfilled, (state) => {
-        state.isLoading = false;
+      .addCase(logOutOperation.fulfilled, (state) => {
         state.user = null;
-        state.token = null;
+        state.isAuthenticated = false;
       })
-      .addCase(logOut.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
+      .addCase(logOutOperation.rejected, (state, action) => {
+        // Handle the rejected case
       })
-      .addCase(fetchCurrentUser.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
+      .addCase(fetchCurrentUserOperation.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.isAuthenticated = true;
       })
-      .addCase(fetchCurrentUser.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.user = action.payload;
-      })
-      .addCase(fetchCurrentUser.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
+      .addCase(fetchCurrentUserOperation.rejected, (state, action) => {
+        // Handle the rejected case
       });
   },
 });
 
-export const { setUser, clearUser } = authSlice.actions;
-
+export const { setUser, clearUser } = authSlice.actions; // Export renamed actions
 export default authSlice.reducer;

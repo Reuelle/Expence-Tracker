@@ -1,31 +1,16 @@
-/* src/components/HomePage/HomePage.module.css */
 .homePage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the page takes up the full viewport height */
+}
+
+.mainContent {
+  flex: 1; /* Allow main content to expand and take available space */
   padding: 20px;
-}
-
-.header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.header h1 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.header p {
-  font-size: 1rem;
-  color: #666;
+  text-align: center;/* Center text and content */
+  background-color: #0C0D0D;
 }
 
 .content {
-  display: flex;
-  justify-content: center;
-}
-
-@media (min-width: 768px) {
-  .content {
-    display: flex;
-    justify-content: center;
-  }
+  margin-top: 20px;
 }

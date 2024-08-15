@@ -1,7 +1,6 @@
-// src/redux/Auth/Auth-operations.jsx
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { authActions } from './Auth-slice'; // Adjust path as needed
+import { setUser } from './Auth-slice'; // Adjusted import
 
 // Set up your API base URL
 axios.defaults.baseURL = 'https://expense-tracker.b.goit.study/api-docs/';
@@ -22,7 +21,7 @@ export const logIn = createAsyncThunk(
     try {
       const { data } = await axios.post('/auth/login', credentials);
       setAuthToken(data.token);
-      dispatch(authActions.setUser(data.user));
+      dispatch(setUser(data.user)); // Using setUser from Auth-slice
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -60,4 +59,3 @@ export const fetchCurrentUser = createAsyncThunk(
     }
   }
 );
-

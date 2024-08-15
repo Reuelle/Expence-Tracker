@@ -1,7 +1,6 @@
 // src/components/UserSetsModal/UserSetsModal.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { updateUser, uploadAvatar, removeAvatar } from 'redux/User/User-operations'; // Adjust path as needed
 import { showErrorNotification, showSuccessNotification } from 'utils/notifications'; // Adjust path as needed
 import styles from './UserSetsModal.module.css'; // Import CSS module
@@ -14,11 +13,9 @@ const UserSetsModal = ({ onClose }) => {
   });
   const [error, setError] = useState('');
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch user data from the backend or global state and set it to formData
-    // Replace with actual data fetching logic
     const fetchUserData = async () => {
       try {
         // Fetch user data
@@ -72,18 +69,18 @@ const UserSetsModal = ({ onClose }) => {
     }
   };
 
-  const handleEscapeKey = (e) => {
+  const handleEscapeKey = useCallback((e) => {
     if (e.key === 'Escape') {
       onClose();
     }
-  };
+  }, [onClose]);
 
   useEffect(() => {
     window.addEventListener('keydown', handleEscapeKey);
     return () => {
       window.removeEventListener('keydown', handleEscapeKey);
     };
-  }, []);
+  }, [handleEscapeKey]);
 
   return (
     <div className={styles.modalOverlay} onClick={handleBackdropClick}>
@@ -107,7 +104,6 @@ const UserSetsModal = ({ onClose }) => {
           <label>
             Currency:
             <select name="currency" value={formData.currency} onChange={handleInputChange}>
-              {/* Populate with currency options */}
               <option value="USD">USD</option>
               <option value="EUR">EUR</option>
               {/* Add other currencies */}

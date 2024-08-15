@@ -1,15 +1,15 @@
 // src/components/Modal/Modal.jsx
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import TransactionsHistoryNav from '../TransactionsHistoryNav/TransactionsHistoryNav';
 import UserBarBtn from '../UserBarBtn/UserBarBtn';
 import styles from './Modal.module.css'; // Import CSS module
 
 const Modal = ({ isOpen, onClose }) => {
-  const handleKeyDown = (event) => {
+  const handleKeyDown = useCallback((event) => {
     if (event.key === 'Escape') {
       onClose();
     }
-  };
+  }, [onClose]);
 
   useEffect(() => {
     if (isOpen) {
@@ -18,7 +18,7 @@ const Modal = ({ isOpen, onClose }) => {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen]);
+  }, [isOpen, handleKeyDown]);
 
   if (!isOpen) return null;
 
