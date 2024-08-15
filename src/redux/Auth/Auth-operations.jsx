@@ -1,63 +1,55 @@
-// src/redux/Auth/Auth-operations.jsx
-import axios from 'axios';
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { authActions } from './Auth-slice'; // Adjust path as needed
+import { createSlice } from '@reduxjs/toolkit';
+import { logIn, logOut, fetchCurrentUser } from './Auth-operations';
 
-// Set up your API base URL
-axios.defaults.baseURL = 'https://expense-tracker.b.goit.study/api-docs/';
-
-// Utility to set authorization token
-const setAuthToken = (token) => {
-  if (token) {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  } else {
-    delete axios.defaults.headers.common.Authorization;
-  }
-};
-
-// Log In operation
-export const logIn = createAsyncThunk(
-  'auth/logIn',
-  async (credentials, { rejectWithValue, dispatch }) => {
-    try {
-      const { data } = await axios.post('/auth/login', credentials);
-      setAuthToken(data.token);
-      dispatch(authActions.setUser(data.user));
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.response.data);
-    }
-  }
-);
-
-// Log Out operation
-export const logOut = createAsyncThunk('auth/logOut', async (_, { rejectWithValue }) => {
-  try {
-    await axios.post('/auth/logout');
-    setAuthToken(null);
-  } catch (error) {
-    return rejectWithValue(error.response.data);
-  }
+const authSlice = createSlice({
+  name: 'auth',
+  initialState: {
+    user: null,
+    token: null,
+    isAuthenticated: false,
+    error: null,
+  },
+  reducers: {
+    setUser: (state, action) => {
+      state.user = action.payload;
+      state.isAuthenticated = true;
+    },
+    clearUser: (state) => {
+      state.user = null;
+      state.token = null;
+      state.isAuthenticated = false;
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(logIn.fulfilled, (state, action) => {
+        state.token = action.payload.token;
+        state.user = action.payload.user;
+        state.isAuthenticated = true;
+        state.error = null;
+      })
+      .addCase(logIn.rejected, (state, action) => {
+        state.error = action.payload;
+      })
+      .addCase(logOut.fulfilled, (state) => {
+        state.user = null;
+        state.token = null;
+        state.isAuthenticated = false;
+        state.error = null;
+      })
+      .addCase(logOut.rejected, (state, action) => {
+        state.error = action.payload;
+      })
+      .addCase(fetchCurrentUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isAuthenticated = true;
+        state.error = null;
+      })
+      .addCase(fetchCurrentUser.rejected, (state, action) => {
+        state.error = action.payload;
+      });
+  },
 });
 
-// Get Current User operation
-export const fetchCurrentUser = createAsyncThunk(
-  'auth/fetchCurrentUser',
-  async (_, { getState, rejectWithValue }) => {
-    const state = getState();
-    const persistedToken = state.auth.token;
-
-    if (!persistedToken) {
-      return rejectWithValue('No token found');
-    }
-
-    try {
-      setAuthToken(persistedToken);
-      const { data } = await axios.get('/auth/current');
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.response.data);
-    }
-  }
-);
-
+export const { setUser, clearUser } = authSlice.actions;
+export default authSlice.reducer;
