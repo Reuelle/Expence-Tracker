@@ -18,7 +18,7 @@ const Modal = ({ isOpen, onClose }) => {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen]);
+  }, [isOpen, handleKeyDown]); // Added handleKeyDown to dependency array
 
   if (!isOpen) return null;
 
