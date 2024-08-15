@@ -1,10 +1,12 @@
+// src/index.js
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { App } from './App';
+import ReactDOM from 'react-dom';
+import App from './App'; // Verify this path is correct
 import './index.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
