@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from '../Logo/Logo';
 import './Header.module.css'; // Import custom styles
 
 const Header = () => (
