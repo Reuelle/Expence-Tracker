@@ -1,7 +1,7 @@
 // src/components/AuthForm/AuthForm.jsx
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+//import * as Yup from 'yup';
 import styles from './AuthForm.module.css'; // Optional: For custom styling
 
 const AuthForm = ({
