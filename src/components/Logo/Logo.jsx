@@ -2,7 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import  useAuth  from '../hooks/useAuth'; // Assumed custom hook for authentication status
-import logoImage from './Icon.png'; // Path to the logo image
+import logoImage from './Logo.png'; // Path to the logo image
 import styles from './Logo.module.css'; // CSS Module for styling
 
 const Logo = () => {
