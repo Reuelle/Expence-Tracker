@@ -1,6 +1,6 @@
-// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header/Header'; // Import Header
 import HomePage from './components/HomePage/HomePage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import AuthorizationPage from './components/AuthorizationPage/AuthorizationPage';
@@ -9,6 +9,7 @@ import MainTransactionPage from './components/MainTransactionPage/MainTransactio
 
 const App = () => (
   <Router>
+    <Header /> {/* Add Header here if it should be on all pages */}
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/register" element={<RegisterPage />} />
