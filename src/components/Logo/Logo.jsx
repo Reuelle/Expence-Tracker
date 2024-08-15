@@ -1,12 +1,12 @@
 // src/components/Logo/Logo.jsx
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth'; // Assumed custom hook for authentication status
 import logoImage from './Icon.png'; // Path to the logo image
 import styles from './Logo.module.css'; // CSS Module for styling
 
 const Logo = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { isAuthenticated } = useAuth(); // Use authentication hook to check if user is authenticated
 
   const handleClick = () => {
