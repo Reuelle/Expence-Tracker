@@ -1,9 +1,8 @@
-// src/components/BalanceBlock/BalanceBlock.jsx
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './BalanceBlock.module.css';
 
 const BalanceBlock = () => {
-  const [balance, setBalance] = useState(0); // Placeholder for user balance
+  const [balance] = useState(0); // Remove setBalance if not used
   const blockRef = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [velocity, setVelocity] = useState({ x: 2, y: 2 });
@@ -30,11 +29,12 @@ const BalanceBlock = () => {
       }
 
       setPosition({ x: newX, y: newY });
+      requestAnimationFrame(updatePosition);
     };
 
-    const interval = setInterval(updatePosition, 10);
+    requestAnimationFrame(updatePosition);
 
-    return () => clearInterval(interval);
+    return () => cancelAnimationFrame(updatePosition);
   }, [position, velocity]);
 
   return (
