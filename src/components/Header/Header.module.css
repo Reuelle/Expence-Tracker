@@ -2,7 +2,8 @@
 .header {
   width: 1440px;
   height: 91px;
-  color: #0C0D0D;
+  background-color: #0C0D0D; /* Use background-color to set the header background */
+  color: #FAFAFA; /* Apply text color to make sure text contrasts with background */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -10,7 +11,7 @@
 }
 
 .logo {
-  color: #FAFAFA;
+  color: #FAFAFA; /* Text color */
   width: 226px;
   height: 26px;
   font-size: 1.5rem;
