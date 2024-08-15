@@ -1,7 +1,7 @@
 // src/components/AuthorizationPage/AuthorizationPage.js
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { logIn } from '../redux/Auth/Auth-operations'; // Adjust path as needed
+import { logIn } from '../../redux/Auth/Auth-operations'; // Adjust path as needed
 import './AuthorizationPage.module.css'; // Optional: For custom styling
 
 const AuthorizationPage = () => {
