@@ -1,7 +1,7 @@
 // src/redux/Auth/Auth-operations.jsx
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { authActions } from '../redux/Auth-slice'; // Adjust path as needed
+import { authActions } from '../redux/Auth/Auth-slice'; // Adjust path as needed
 
 // Set up your API base URL
 axios.defaults.baseURL = 'https://expense-tracker.b.goit.study/api-docs/';
