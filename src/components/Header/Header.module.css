@@ -1,20 +1,17 @@
-/* src/components/Header/Header.module.css */
 .header {
   width: 1440px;
   height: 91px;
-  background-color: #0C0D0D; /* Use background-color to set the header background */
-  color: #FAFAFA; /* Apply text color to make sure text contrasts with background */
+  background-color: #0C0D0D;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* Center items horizontally */
   padding: 20px;
-  border: 1px solid black;
 }
 
 .logo {
-  width: 226px;
-  height: 26px;
- 
+  color: #FAFAFA;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .nav {
