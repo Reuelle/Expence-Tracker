@@ -2,6 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logIn, logOut, fetchCurrentUser } from './Auth-operations'; // Adjust path as needed
 
+
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
@@ -10,20 +11,20 @@ const authSlice = createSlice({
     // other initial state properties
   },
   reducers: {
-    login: (state, action) => {
+    logIn: (state, action) => {
       state.user = action.payload;
       state.isAuthenticated = true;
     },
-    logout: (state) => {
+    logOut: (state) => {
       state.user = null;
       state.isAuthenticated = false;
     },
-    // other reducers
+    // Add any other reducers here
+    fetchCurrentUser: (state) => {
+      // Implementation for fetching current user
+    },
   },
 });
 
-export const { login, logout } = authSlice.actions;
+export const { logIn, logOut, fetchCurrentUser } = authSlice.actions;
 export default authSlice.reducer;
-
-
-  
