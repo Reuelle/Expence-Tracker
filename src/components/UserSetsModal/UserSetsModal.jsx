@@ -1,11 +1,9 @@
 // src/components/UserSetsModal/UserSetsModal.jsx
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { updateUser, uploadAvatar, removeAvatar } from 'redux/User/User-operations'; // Adjust path as needed
 import { showErrorNotification, showSuccessNotification } from 'utils/notifications'; // Adjust path as needed
 import styles from './UserSetsModal.module.css'; // Import CSS module
-
 
 const UserSetsModal = ({ onClose }) => {
   const [formData, setFormData] = useState({
@@ -15,7 +13,6 @@ const UserSetsModal = ({ onClose }) => {
   });
   const [error, setError] = useState('');
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch user data from the backend or global state and set it to formData
