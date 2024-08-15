@@ -11,7 +11,7 @@ const Logo = () => {
 
   const handleClick = () => {
     if (isAuthenticated) {
-      history.push('/main-transaction'); // Redirect to MainTransactionPage for authenticated users
+      navigate('/path'); // Redirect to MainTransactionPage for authenticated users
     } else {
       history.push('/'); // Redirect to HomePage for unauthenticated users
     }
