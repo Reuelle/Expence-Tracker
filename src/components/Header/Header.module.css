@@ -2,7 +2,7 @@
 .header {
   width: 1440px;
   height: 91px;
-  color: #0C0D0D;
+  background-color: #0C0D0D;
   display: flex;
   align-items: center;
   justify-content: space-between;
