@@ -4,12 +4,12 @@ import Logo from '../Logo/Logo';
 import './Header.module.css'; // Import custom styles
 
 const Header = () => (
-  <header className="header">
+  <header className={styles.header}>
     <Logo /> {/* Use the Logo component */}
-    <div className="logo">
+    <div className={styles.logo}>
       
     </div>
-    <nav className="nav">
+    <nav className={styles.nav}>
       {/* Add navigation links or other elements as needed */}
     </nav>
   </header>
