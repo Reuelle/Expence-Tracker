@@ -1,11 +1,11 @@
-// src/components/Header/Header.js
 import React from 'react';
-import Logo from '../Logo/Logo';
-import './Header.module.css'; // Optional: For custom styling
+import './Header.module.css'; // Import custom styles
 
 const Header = () => (
   <header className="header">
-    <Logo /> {"EXPENSE TRACKER"}
+    <div className="logo">
+      EXPENSE TRACKER
+    </div>
     <nav className="nav">
       {/* Add navigation links or other elements as needed */}
     </nav>
