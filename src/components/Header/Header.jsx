@@ -7,7 +7,7 @@ const Header = () => (
   <header className="header">
     <Logo /> {/* Use the Logo component */}
     <div className="logo">
-      EXPENSETRACKER
+      
     </div>
     <nav className="nav">
       {/* Add navigation links or other elements as needed */}
