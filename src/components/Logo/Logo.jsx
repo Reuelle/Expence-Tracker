@@ -13,7 +13,7 @@ const Logo = () => {
     if (isAuthenticated) {
       navigate('/path'); // Redirect to MainTransactionPage for authenticated users
     } else {
-      history.push('/'); // Redirect to HomePage for unauthenticated users
+       navigate('/somepath'); // Redirect to HomePage for unauthenticated users
     }
   };
 
